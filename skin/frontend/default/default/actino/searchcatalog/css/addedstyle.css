@@ -1,0 +1,17 @@
+.display-none {
+    display: none;
+}
+.pull-right {
+    text-align: right;
+}
+.pull-left {
+    text-align: left;
+}
+.pull-center {
+    text-align: center;
+}
+#map-canvas {
+    width: 100%;
+    height: 400px;
+    background-color: #CCC;
+}

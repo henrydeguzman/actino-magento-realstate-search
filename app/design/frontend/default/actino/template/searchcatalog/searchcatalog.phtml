@@ -1,0 +1,505 @@
+<style>
+    td {padding: 6px;}
+    .align-center{
+        text-align: center;
+    }
+    .btn-90{
+        width: 90px;
+        cursor: pointer;
+    }
+</style>
+
+<?php
+$helper = Mage::helper("searchcatalog");
+?>
+
+<section id="search_option">
+    <div>
+        <table width="100%">
+            <tr>
+                <td width="50%" class="align-center">
+                    <button type="button" id="btn_buy" name="btn_buy" class="btn-90">Buy</button>
+                </td>
+                <td class="align-center">
+                    <button type="button" id="btn_sell" name="btn_sell" class="btn-90">Sell</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="align-center">
+                    <button type="button" id="btn_rent" name="btn_rent" class="btn-90">Rent</button>
+                </td>
+                <td class="align-center">
+                    <button type="button" id="btn_forrent" name="btn_forrent" class="btn-90">For rent</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="display-none pull-right" id="seach_option_widget">
+        <label for="search_option">Different option:</label>
+        <select id="search_option" class="form-control">
+            <option selected value="0">Please select</option>
+            <option value="buy">Buy</option>
+            <option value="rent">Rent</option>
+            <option value="sell">Sell</option>
+            <option value="forrent">For rent</option>
+        </select>
+    </div>
+
+</section>
+<section id="buy_section" class="display-none">
+
+    <ol class="opc" id="buy_steps">
+        <li id="" class="section">
+            <div class="step-title">
+                <span class="number">2</span>
+                <h2>Where</h2>
+            </div>
+            <div id="where_item" class="step a-item" >
+                <table>
+                    <tr>
+
+                        <td colspan="2">
+                            <input type="text" id="tb_place" name="tb_place" placeholder="Where do you want to go ?s" class="form-control" />
+                        </td>
+                    </tr>
+
+                    <!-- <tr>
+                    <td>
+                        <label class="col-md-3 control-label" for="tb_place">Place</label>
+                    </td>
+                    <td>
+                        <input type="text" id="tb_place" name="tb_place" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="col-md-3 control-label" for="tb_city">City</label>
+                    </td>
+                    <td>
+                        <input type="text" id="tb_city" name="tb_city" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="col-md-3 control-label" for="tb_pricemin">Country</label>
+                    </td>
+                    <td>
+                        <?php
+                    /*                        $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
+                                            */?>
+                        <select class="form-control">
+                            <?php /*foreach($countries as $country) : */?>
+                                <option><?php /*echo $country; */?></option>
+                            <?php /*endforeach */?>
+                        </select>
+                    </td>
+                </tr>-->
+
+
+                </table>
+
+                <button type="submit" title="Next" id="buy_where_next" class="button"><span><span>Next</span></span></button>
+            </div>
+        </li>
+        <li id="" class="section">
+            <div class="step-title">
+                <span class="number">3</span>
+                <h2>What</h2>
+            </div>
+            <div id="what_item" class="step a-item" style="display: none;">
+               <table>
+                   <tr>
+                       <td colspan="2">
+                           <select id="realstate_type" multiple="multiple" style="width: auto">
+                               <optgroup label="Personnal">
+                                   <option value="1">Apartment</option>
+                                   <option value="2">Condominium</option>
+                                   <option value="3">House</option>
+                                   <option value="4">Barge</option>
+                                   <option value="5">Cottage</option>
+                                   <option value="6">Mobile home</option>
+                                   <option value="7">Ground</option>
+                               </optgroup>
+                               <optgroup label="Car">
+                                   <option value="8">Parking</option>
+                                   <option value="9">Storage</option>
+                               </optgroup>
+                               <optgroup label="Work">
+                                   <option value="10">Office space</option>
+                               </optgroup>
+                           </select>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="tb_numberofbedrooms"><?php echo $this->__('Number of bedrooms');?> <span class="required">*</span></label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_numberofbedrooms" name="tb_numberofbedrooms" min="1" max="100" data-fv-integer-message="The value is not a n integer" class="form-control inputnumber" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label class="col-md-3 control-label" for="tb_size">Size</label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_size" name="tb_size" class="form-control inputnumber" min="1" max="100" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label class="col-md-3 control-label" for="tb_pricemin">Price min</label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_pricemin" name="tb_pricemin" class="form-control inputnumber" min="1" max="100" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label class="col-md-3 control-label" for="tb_max">Max</label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_max" name="tb_max" class="form-control inputnumber" min="1" max="100" />
+                       </td>
+                   </tr>
+               </table>
+
+
+                <br /><br />
+                <button type="submit" title="Prev" id="buy_what_prev" class="button"><span><span>Prev</span></span></button>
+            </div>
+
+        </li>
+
+    </ol>
+    <div style="padding: 20px;">
+        <button type="submit" id="catalogsearch_btn" name="catalogsearch_btn" title="Submit" class="button"><span><span>Search</span></span></button>
+    </div>
+</section>
+
+
+<!-- rent section -->
+
+<section id="rent_section" class="display-none">
+
+    <ol class="opc" id="buy_steps">
+
+        <li id="" class="section allow">
+            <div class="step-title">
+                <span class="number">2</span>
+                <h2>Where</h2>
+            </div>
+            <div id="where_item" class="step a-item" style="">
+                <table>
+                    <tr>
+                        <td colspan="2" width="100%">
+                            <input class="input-text" style="width: 200px;" type="text" id="tb_place" name="tb_place" placeholder="Where do you want to go ?s" class="form-control" />
+                        </td>
+                    </tr>
+
+                    <!-- <tr>
+                    <td>
+                        <label class="col-md-3 control-label" for="tb_place">Place</label>
+                    </td>
+                    <td>
+                        <input type="text" id="tb_place" name="tb_place" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="col-md-3 control-label" for="tb_city">City</label>
+                    </td>
+                    <td>
+                        <input type="text" id="tb_city" name="tb_city" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="col-md-3 control-label" for="tb_pricemin">Country</label>
+                    </td>
+                    <td>
+                        <?php
+                    /*                        $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
+                                            */?>
+                        <select class="form-control">
+                            <?php /*foreach($countries as $country) : */?>
+                                <option><?php /*echo $country; */?></option>
+                            <?php /*endforeach */?>
+                        </select>
+                    </td>
+                </tr>-->
+
+
+                </table>
+                <button type="submit" title="Next" id="rent_where_next" class="button"><span><span>Next</span></span></button>
+            </div>
+        </li>
+        <li id="" class="section">
+            <div class="step-title">
+                <span class="number">3</span>
+                <h2>What</h2>
+            </div>
+            <div id="what_item" class="step a-item" style="display: none;">
+               <table>
+                   <tr>
+                       <td colspan="2">
+                           <select id="realstate_type1" multiple="multiple" style="width: auto">
+                               <optgroup label="Personnal">
+                                   <option value="1">Apartment</option>
+                                   <option value="2">Condominium</option>
+                                   <option value="3">House</option>
+                                   <option value="4">Barge</option>
+                                   <option value="5">Cottage</option>
+                                   <option value="6">Mobile home</option>
+                                   <option value="7">Ground</option>
+                               </optgroup>
+                               <optgroup label="Car">
+                                   <option value="8">Parking</option>
+                                   <option value="9">Storage</option>
+                               </optgroup>
+                               <optgroup label="Work">
+                                   <option value="10">Office space</option>
+                               </optgroup>
+                           </select>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label for="tb_numberofbedrooms"><?php echo $this->__('Number of bedrooms');?> <span class="required">*</span></label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_numberofbedrooms" name="tb_numberofbedrooms" min="1" max="100" data-fv-integer-message="The value is not a n integer" class="form-control inputnumber" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label class="col-md-3 control-label" for="tb_size">Size</label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_size" name="tb_size" class="form-control inputnumber" min="1" max="100" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label class="col-md-3 control-label" for="tb_pricemin">Price min</label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_pricemin" name="tb_pricemin" class="form-control inputnumber" min="1" max="100" />
+                       </td>
+                   </tr>
+                   <tr>
+                       <td>
+                           <label class="col-md-3 control-label" for="tb_max">Max</label>
+                       </td>
+                       <td>
+                           <input type="number" id="tb_max" name="tb_max" class="form-control inputnumber" min="1" max="100" />
+                       </td>
+                   </tr>
+               </table>
+
+
+                <br /><br />
+                <button type="submit" title="Next" id="rent_what_next" class="button"><span><span>Next</span></span></button>
+                <button type="submit" title="Prev" id="rent_what_prev" class="button"><span><span>Prev</span></span></button>
+            </div>
+
+        </li>
+        <li id="" class="section">
+            <div class="step-title">
+                <span class="number">3</span>
+                <h2>When</h2>
+            </div>
+            <div id="when_item" class="step a-item" style="display: none;">
+
+                <div id="two-inputs" class="input-group input-daterange pull-center" data-date-format="mm/dd/yyyy">
+                    <input type="text" id="rent_daterange_from" name="rent_daterange_from" class="form-control text-center" placeholder="From" readonly>
+                    <span class="input-group-addon"><i class="fa fa-angle-right">></i></span>
+                    <input type="text" id="rent_daterange_to" name="rent_daterange_to" class="form-control text-center" placeholder="To" readonly>
+                </div>
+
+                <br />
+                <div id="radio_select_time" class="pull-center display-none">
+                    <label class="radio-inline"><input type="radio" checked="true" name="radio_time_option" value="fulltime">Full time</label>
+                    <label class="radio-inline"><input type="radio" name="radio_time_option" value="parttime">Part time</label>
+                    <br />
+                    <br />
+                    <div id="for_parttime" class="pull-center display-none">
+                        <label class="btn btn-primary btn-xs">
+                            <input type="checkbox" autocomplete="off">Mon
+                        </label>
+                        <label class="btn btn-primary btn-xs">
+                            <input type="checkbox" autocomplete="off">Tue
+                        </label>
+                        <label class="btn btn-primary btn-xs">
+                            <input type="checkbox" autocomplete="off">Wed
+                        </label>
+                        <label class="btn btn-primary btn-xs">
+                            <input type="checkbox" autocomplete="off">Thu
+                        </label>
+                        <label class="btn btn-primary btn-xs">
+                            <input type="checkbox" autocomplete="off">Fri
+                        </label>
+                        <label class="btn btn-primary btn-xs">
+                            <input type="checkbox" autocomplete="off">Sat
+                        </label>
+                        <label class="btn btn-primary btn-xs">
+                            <input type="checkbox" autocomplete="off">Sun
+                        </label>
+                        <br />
+                        <br />
+                        <br />
+
+                        <div>
+                            <label for="slider_start_time">Start time:</label>
+                            <label id="slider_start_time">
+                                <?php
+                                $starttime = $helper->convert_time(floor(480 / 60),480 - (floor(480 / 60) * 60));
+                                echo $starttime["hours"] . ":" . $starttime['minutes'];
+                                ?>
+                            </label>
+
+                            <label for="slider_end_time">End time:</label>
+                            <label id="slider_end_time">
+                                <?php
+                                $endtime = $helper->convert_time(floor(1140 / 60),1140 - (floor(1140 / 60) * 60));
+                                echo $endtime["hours"] . ":" . $endtime['minutes'];
+                                ?>
+                            </label>
+                        </div>
+                        <div id="scale-slider"></div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <br /><br />
+                <button type="submit" title="Prev" id="rent_when_prev" class="button"><span><span>Prev</span></span></button>
+            </div>
+
+        </li>
+
+    </ol>
+</section>
+
+<section id="sell_section" class="display-none">
+sell section
+</section>
+
+<section id="forrent_section" class="display-none">
+forrent section
+</section>
+
+<section id="google_map">
+    <div id="map-canvas">map</div>
+</section>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script src="<?php echo $this->getJsUrl('actino/searchcatalog/searchcatalog');?>"></script>
+<script>
+    (function($){
+        $('#two-inputs').dateRangePicker({
+            separator : ' to ',
+            getValue: function()
+            {
+                if ($('#rent_daterange_from').val() && $('#rent_daterangeto').val() )
+                    return $('#rent_daterange_from').val() + ' to ' + $('#rent_daterange_to').val();
+                else
+                    return '';
+            },
+            setValue: function(s,s1,s2)
+            {
+                $('#rent_daterange_from').val(s1);
+                $('#rent_daterange_to').val(s2);
+            }
+        })
+            .bind('datepicker-apply',function(event,obj){
+                var date_from = obj.date1;
+                var date_to = obj.date2;
+                var radio_select_time = $('#radio_select_time');
+                if(date_to != "Invalid Date")
+                {
+                    console.log('valid date');
+                    radio_select_time.removeClass('display-none');
+                }
+                else
+                {
+                    console.log('invalid date');
+                    $('#rent_daterange_from').val('');
+                    $('#rent_daterange_to').val('');
+                    radio_select_time.addClass('display-none');
+                }
+            });
+        $("#scale-slider")
+            .slider({
+                range: true,
+                min: 0,
+                max: 1440,
+                step: 15,
+                values: [480, 1140],
+                slide: function(event, ui){
+                    var starttime = convert_time(Math.floor(ui.values[0] / 60),ui.values[0] - (Math.floor(ui.values[0] / 60) * 60));
+                    var endtime = convert_time(Math.floor(ui.values[1] / 60),ui.values[1] - (Math.floor(ui.values[1] / 60) * 60));
+                    $('#slider_start_time').html(starttime.hours + ":" + starttime.minutes);
+                    $('#slider_end_time').html(endtime.hours + ":" + endtime.minutes);
+                }
+            })
+            .slider("pips", {
+                rest: "label",
+                labels: { first: "Midnight", last: "Midnight"},
+                step: 24
+            })
+            .slider("float");
+        $("#realstate_type").multipleSelect({
+            multipleWidth: 100,
+            width: 300,
+            filter: true,
+            multiple: true
+        });
+        $("#realstate_type1").multipleSelect({
+            multipleWidth: 100,
+            width: 300,
+            filter: true,
+            multiple: true
+        });
+        function convert_time(hours1, minutes1)
+        {
+            var thisArray;
+            if (hours1.length == 1) hours1 = '0' + hours1;
+            if (minutes1.length == 1) minutes1 = '0' + minutes1;
+            if (minutes1 == 0) minutes1 = '00';
+            if (hours1 >= 12) {
+                if (hours1 == 12) {
+                    hours1 = hours1;
+                    minutes1 = minutes1 + " PM";
+                }
+                else if (hours1 == 24) {
+                    hours1 = 11;
+                    minutes1 = "59 PM";
+                }
+                else {
+                    hours1 = hours1 - 12;
+                    minutes1 = minutes1 + " PM";
+                }
+            } else {
+                hours1 = hours1;
+                minutes1 = minutes1 + " AM";
+            }
+            if (hours1 == 0) {
+                hours1 = 12;
+                minutes1 = minutes1;
+            }
+            thisArray = {hours: hours1, minutes: minutes1};
+
+            return thisArray;
+        }
+
+
+    })($j);
+
+</script>
+
+
+

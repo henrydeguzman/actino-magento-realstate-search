@@ -1,0 +1,41 @@
+<config>
+    <global>
+        <models>
+            <searchcatalog>
+                <class>Actino_Searchcatalog_Model</class>
+            </searchcatalog>
+        </models>
+
+        <blocks>
+            <searchcatalog>
+                <class>Actino_Searchcatalog_Block</class>
+            </searchcatalog>
+        </blocks>
+
+        <helpers>
+            <searchcatalog>
+                <class>Actino_Searchcatalog_Helper</class>
+            </searchcatalog>
+        </helpers>
+    </global>
+
+
+    <frontend>
+        <routers>
+            <actino_searchcatalog>
+                <use>standard</use>
+                <args>
+                    <module>Actino_Searchcatalog</module>
+                    <frontName>searchcatalog</frontName>
+                </args>
+            </actino_searchcatalog>
+        </routers>
+        <layout>
+            <updates>
+                <searchcatalog>
+                    <file>searchcatalog.xml</file>
+                </searchcatalog>
+            </updates>
+        </layout>
+    </frontend>
+</config>

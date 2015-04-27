@@ -1,0 +1,48 @@
+<layout>
+    <actino_searchcatalog_index_realstate>
+        <reference name="content">
+            <block type="searchcatalog/searchcatalog" name="searchcatalog"
+                   template="searchcatalog/searchcatalog.phtml"></block>
+        </reference>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>actino/searchcatalog/css/multiple-select.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>actino/searchcatalog/css/addedstyle.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>actino/searchcatalog/css/daterangepicker.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>actino/searchcatalog/css/jquery-ui.min.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>actino/searchcatalog/css/jquery-ui-slider-pips.css</stylesheet>
+            </action>
+
+            <action method="addJs">
+                <script>actino/jquery-2.1.3.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>actino/noconflict.js</script>
+            </action>
+            <action method="addJs">
+                <script>actino/searchcatalog/jquery.multiple.select.js</script>
+            </action>
+            <action method="addJs">
+                <script>actino/searchcatalog/moment.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>actino/searchcatalog/jquery.daterangepicker.js</script>
+            </action>
+            <action method="addJs">
+                <script>actino/searchcatalog/jquery-ui.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>actino/searchcatalog/jquery-ui-slider-pips.js</script>
+            </action>
+
+        </reference>
+    </actino_searchcatalog_index_realstate>
+</layout>
